@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 public class WorkoutListFragment extends ListFragment {
 
-    interface WorkoutListListener {
+    static interface WorkoutListListener {
         void itemClicked(long id);
     }
 
@@ -30,7 +30,9 @@ public class WorkoutListFragment extends ListFragment {
         for (int i = 0; i < names.length; i++) {
             names[i] = Workout.workouts[i].getName();
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(inflater.getContext(), android.R.layout.simple_list_item_1, names);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(inflater.getContext(),
+                android.R.layout.simple_list_item_1,
+                names);
         setListAdapter(adapter);
         return super.onCreateView(inflater, container, savedInstanceState);
     }

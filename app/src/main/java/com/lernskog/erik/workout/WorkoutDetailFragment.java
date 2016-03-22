@@ -1,8 +1,8 @@
 package com.lernskog.erik.workout;
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +17,16 @@ public class WorkoutDetailFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (savedInstanceState != null) {
             workoutId = savedInstanceState.getLong("workoutId");
         }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
 
@@ -46,5 +51,4 @@ public class WorkoutDetailFragment extends Fragment {
     public void setWorkout(long id) {
         this.workoutId = id;
     }
-
 }
